@@ -61,4 +61,6 @@ function EditUserDialogContent({ user }: EditUserDialogProps) {
   );
 }
 
-export const editUserDialog = createDialog(EditUserDialogContent).returns<User>();
+export const editUserDialog = createDialog(
+  EditUserDialogContent
+).returns<User>();

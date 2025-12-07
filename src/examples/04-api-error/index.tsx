@@ -23,7 +23,10 @@ export function ApiErrorExample() {
       addLog("User loaded successfully");
     } catch {
       // Error was already handled by the API client showing the dialog
-      addLog("Error was handled by API client (dialog shown outside React!)", "error");
+      addLog(
+        "Error was handled by API client (dialog shown outside React!)",
+        "error"
+      );
     } finally {
       setIsLoading(false);
     }
@@ -47,9 +50,9 @@ export function ApiErrorExample() {
       <div className="rounded-lg border bg-amber-50 dark:bg-amber-950/20 p-4">
         <h3 className="font-semibold mb-2">💡 Key Point:</h3>
         <p className="text-sm">
-          The error dialog is opened from <code>api-client.ts</code> - 
-          a plain TypeScript file with no React context. hiraku's modal controllers
-          work anywhere in your app!
+          The error dialog is opened from <code>api-client.ts</code> - a plain
+          TypeScript file with no React context. hiraku's modal controllers work
+          anywhere in your app!
         </p>
       </div>
 

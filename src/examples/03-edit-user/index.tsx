@@ -17,7 +17,8 @@ export function EditUserExample() {
       {
         timestamp: new Date().toLocaleTimeString(),
         message: `role: ${role}`,
-        type: role === "confirm" ? "success" : role === "cancel" ? "error" : "info",
+        type:
+          role === "confirm" ? "success" : role === "cancel" ? "error" : "info",
         data,
       },
       ...prev,
@@ -41,7 +42,8 @@ export function EditUserExample() {
       <div>
         <h2 className="text-2xl font-bold">Example 3: Typed Edit Modal</h2>
         <p className="text-muted-foreground mt-1">
-          Using <code>.returns&lt;User&gt;()</code> for type-safe modal return values.
+          Using <code>.returns&lt;User&gt;()</code> for type-safe modal return
+          values.
         </p>
       </div>
 

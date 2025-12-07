@@ -21,7 +21,9 @@ function ErrorDialogContent({ title, message }: ErrorDialogProps) {
         <AlertDialogDescription>{message}</AlertDialogDescription>
       </AlertDialogHeader>
       <AlertDialogFooter>
-        <AlertDialogAction onClick={() => errorDialog.close({ role: "confirm" })}>
+        <AlertDialogAction
+          onClick={() => errorDialog.close({ role: "confirm" })}
+        >
           OK
         </AlertDialogAction>
       </AlertDialogFooter>

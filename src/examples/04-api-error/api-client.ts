@@ -7,7 +7,9 @@ export async function fetchUser(): Promise<User> {
   await new Promise((resolve) => setTimeout(resolve, 500));
 
   // Intentionally throw an error to demonstrate error dialog
-  const error = new Error("Failed to fetch user: Server returned 500 Internal Server Error");
+  const error = new Error(
+    "Failed to fetch user: Server returned 500 Internal Server Error"
+  );
 
   // Open error dialog from outside React!
   await errorDialog.open({

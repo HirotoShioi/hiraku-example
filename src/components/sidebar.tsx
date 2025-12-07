@@ -1,14 +1,14 @@
 import { createSheet } from "@hirotoshioi/hiraku";
 import { Button } from "@/components/ui/button";
-import {
-  SheetContent,
-  SheetHeader,
-  SheetTitle,
-} from "@/components/ui/sheet";
+import { SheetContent, SheetHeader, SheetTitle } from "@/components/ui/sheet";
 
 export type ExampleKey = "basic" | "confirm" | "edit" | "api-error";
 
-export const examples: { key: ExampleKey; label: string; description: string }[] = [
+export const examples: {
+  key: ExampleKey;
+  label: string;
+  description: string;
+}[] = [
   {
     key: "basic",
     label: "1. Basic Info",
@@ -36,7 +36,10 @@ interface SidebarContentProps {
   onSelect: (key: ExampleKey) => void;
 }
 
-export function SidebarContent({ activeExample, onSelect }: SidebarContentProps) {
+export function SidebarContent({
+  activeExample,
+  onSelect,
+}: SidebarContentProps) {
   return (
     <>
       <nav className="flex flex-col gap-1">
@@ -91,4 +94,5 @@ function MobileSidebarContent({ activeExample }: MobileSidebarProps) {
   );
 }
 
-export const mobileSidebar = createSheet(MobileSidebarContent).returns<ExampleKey>();
+export const mobileSidebar =
+  createSheet(MobileSidebarContent).returns<ExampleKey>();

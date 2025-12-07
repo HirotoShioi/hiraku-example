@@ -43,7 +43,10 @@ function App() {
             Modal management made simple
           </p>
         </div>
-        <SidebarContent activeExample={activeExample} onSelect={setActiveExample} />
+        <SidebarContent
+          activeExample={activeExample}
+          onSelect={setActiveExample}
+        />
       </aside>
 
       {/* Main content */}

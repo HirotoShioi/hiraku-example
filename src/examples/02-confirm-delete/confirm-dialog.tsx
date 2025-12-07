@@ -37,4 +37,5 @@ function ConfirmDialogContent({ title, message }: ConfirmDialogProps) {
   );
 }
 
-export const confirmDialog = createAlertDialog(ConfirmDialogContent).returns<boolean>();
+export const confirmDialog =
+  createAlertDialog(ConfirmDialogContent).returns<boolean>();

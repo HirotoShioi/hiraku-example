@@ -1,16 +1,3 @@
-/**
- * Example 4: API Error Dialog (Modal from Outside React)
- *
- * This demonstrates hiraku's unique ability to open modals from outside React components.
- * The error dialog is triggered from the API client layer (src/lib/api-client.ts),
- * NOT from a React component!
- *
- * This pattern is perfect for:
- * - Global error handling in API clients
- * - Auth session expiration dialogs
- * - Network error notifications
- */
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LogPanel, type LogEntry } from "@/components/log-panel";

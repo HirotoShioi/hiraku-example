@@ -1,10 +1,3 @@
-/**
- * Example 3: Typed Return Value Edit Modal
- *
- * Using .returns<User>() to get type-safe return values from modals.
- * The modal returns the edited User object, and TypeScript knows the exact type!
- */
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LogPanel, type LogEntry } from "@/components/log-panel";
@@ -34,13 +27,11 @@ export function EditUserExample() {
   const handleEditUser = async () => {
     await editUserDialog.open({ user });
 
-    // TypeScript knows `data` is User | undefined!
     const { data, role } = await editUserDialog.onDidClose();
 
     addLog(role ?? "dismiss", data);
 
     if (role === "confirm" && data) {
-      // `data` is fully typed as User here
       setUser(data);
     }
   };

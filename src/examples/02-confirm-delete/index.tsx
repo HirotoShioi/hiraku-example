@@ -1,38 +1,3 @@
-/**
- * Example 2: Single-flow Confirm (Delete in One Function)
- *
- * BEFORE (traditional pattern):
- * ```
- * const [isOpen, setIsOpen] = useState(false);
- * const [userToDelete, setUserToDelete] = useState<User | null>(null);
- *
- * const handleDeleteClick = (user: User) => {
- *   setUserToDelete(user);
- *   setIsOpen(true);
- * };
- *
- * const handleConfirm = async () => {
- *   await deleteUser(userToDelete.id);
- *   setIsOpen(false);
- *   refetch();
- * };
- * ```
- *
- * AFTER (hiraku pattern):
- * ```
- * const handleDelete = async (user: User) => {
- *   await confirmDialog.open({ ... });
- *   const { role } = await confirmDialog.onDidClose();
- *   if (role === "confirm") {
- *     await deleteUser(user.id);
- *     refetch();
- *   }
- * };
- * ```
- *
- * Everything in ONE async function - no state fragmentation!
- */
-
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { LogPanel, type LogEntry } from "@/components/log-panel";
@@ -49,7 +14,6 @@ export function ConfirmDeleteExample() {
     ]);
   };
 
-  // The entire delete flow in ONE function!
   const handleDeleteUser = async () => {
     addLog("Opening confirm dialog...");
 

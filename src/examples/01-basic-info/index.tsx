@@ -1,14 +1,3 @@
-/**
- * Example 1: Basic Info Modal (No Return Value)
- *
- * This is the simplest hiraku pattern:
- * - createDialog() to define a modal
- * - open() to show it
- * - close() to dismiss it
- *
- * Perfect for announcements, info messages, or simple notifications.
- */
-
 import { Button } from "@/components/ui/button";
 import { infoDialog } from "@/examples/01-basic-info/info-dialog";
 

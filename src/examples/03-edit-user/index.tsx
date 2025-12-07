@@ -7,14 +7,9 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { editUserDialog } from "@/modals/edit-user-dialog";
+import { LogPanel, type LogEntry } from "@/components/log-panel";
+import { editUserDialog } from "@/examples/03-edit-user/edit-user-dialog";
 import type { User } from "@/types/user";
-
-interface LogEntry {
-  timestamp: string;
-  role: string;
-  data?: User;
-}
 
 export function EditUserExample() {
   const [user, setUser] = useState<User>({
@@ -26,7 +21,12 @@ export function EditUserExample() {
 
   const addLog = (role: string, data?: User) => {
     setLogs((prev) => [
-      { timestamp: new Date().toLocaleTimeString(), role, data },
+      {
+        timestamp: new Date().toLocaleTimeString(),
+        message: `role: ${role}`,
+        type: role === "confirm" ? "success" : role === "cancel" ? "error" : "info",
+        data,
+      },
       ...prev,
     ]);
   };
@@ -68,28 +68,7 @@ export function EditUserExample() {
         <Button onClick={handleEditUser}>Edit User</Button>
       </div>
 
-      <div className="rounded-lg border bg-muted/50 p-4">
-        <h3 className="font-semibold mb-2">Result Log:</h3>
-        <div className="space-y-2 max-h-48 overflow-y-auto">
-          {logs.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No activity yet...</p>
-          ) : (
-            logs.map((log, i) => (
-              <div key={i} className="text-sm font-mono border-b pb-2">
-                <div>
-                  <span className="text-muted-foreground">[{log.timestamp}]</span>{" "}
-                  role: <span className="text-primary font-semibold">{log.role}</span>
-                </div>
-                {log.data && (
-                  <pre className="text-xs mt-1 text-muted-foreground">
-                    data: {JSON.stringify(log.data, null, 2)}
-                  </pre>
-                )}
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+      <LogPanel title="Result Log" logs={logs} />
     </div>
   );
 }

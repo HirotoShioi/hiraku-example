@@ -13,19 +13,14 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { fetchUser } from "@/lib/api-client";
-
-interface LogEntry {
-  timestamp: string;
-  message: string;
-  type: "info" | "error";
-}
+import { LogPanel, type LogEntry } from "@/components/log-panel";
+import { fetchUser } from "@/examples/04-api-error/api-client";
 
 export function ApiErrorExample() {
   const [isLoading, setIsLoading] = useState(false);
   const [logs, setLogs] = useState<LogEntry[]>([]);
 
-  const addLog = (message: string, type: "info" | "error" = "info") => {
+  const addLog = (message: string, type?: LogEntry["type"]) => {
     setLogs((prev) => [
       { timestamp: new Date().toLocaleTimeString(), message, type },
       ...prev,
@@ -71,26 +66,7 @@ export function ApiErrorExample() {
         </p>
       </div>
 
-      <div className="rounded-lg border bg-muted/50 p-4">
-        <h3 className="font-semibold mb-2">Activity Log:</h3>
-        <div className="space-y-1 max-h-40 overflow-y-auto">
-          {logs.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No activity yet...</p>
-          ) : (
-            logs.map((log, i) => (
-              <div
-                key={i}
-                className={`text-sm font-mono ${
-                  log.type === "error" ? "text-destructive" : ""
-                }`}
-              >
-                <span className="text-muted-foreground">[{log.timestamp}]</span>{" "}
-                {log.message}
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+      <LogPanel logs={logs} />
     </div>
   );
 }

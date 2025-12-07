@@ -1,5 +1,5 @@
 import type { User } from "@/types/user";
-import { errorDialog } from "@/modals/error-dialog";
+import { errorDialog } from "@/examples/04-api-error/error-dialog";
 
 // Simulated API client - demonstrates calling modals from outside React components
 export async function fetchUser(): Promise<User> {

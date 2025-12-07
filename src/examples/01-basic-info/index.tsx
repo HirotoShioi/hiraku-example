@@ -10,7 +10,7 @@
  */
 
 import { Button } from "@/components/ui/button";
-import { infoDialog } from "@/modals/info-dialog";
+import { infoDialog } from "@/examples/01-basic-info/info-dialog";
 
 export function BasicInfoExample() {
   const handleShowInfo = async () => {

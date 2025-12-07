@@ -35,20 +35,16 @@
 
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { confirmDialog } from "@/modals/confirm-dialog";
-import { deleteUser } from "@/lib/api-client";
-
-interface LogEntry {
-  timestamp: string;
-  message: string;
-}
+import { LogPanel, type LogEntry } from "@/components/log-panel";
+import { confirmDialog } from "@/examples/02-confirm-delete/confirm-dialog";
+import { deleteUser } from "@/examples/04-api-error/api-client";
 
 export function ConfirmDeleteExample() {
   const [logs, setLogs] = useState<LogEntry[]>([]);
 
-  const addLog = (message: string) => {
+  const addLog = (message: string, type?: LogEntry["type"]) => {
     setLogs((prev) => [
-      { timestamp: new Date().toLocaleTimeString(), message },
+      { timestamp: new Date().toLocaleTimeString(), message, type },
       ...prev,
     ]);
   };
@@ -67,9 +63,9 @@ export function ConfirmDeleteExample() {
     if (role === "confirm" && data) {
       addLog("User confirmed deletion, calling API...");
       await deleteUser("user-123");
-      addLog("✅ User deleted successfully!");
+      addLog("User deleted successfully!", "success");
     } else {
-      addLog("❌ User cancelled deletion");
+      addLog("User cancelled deletion", "error");
     }
   };
 
@@ -88,21 +84,7 @@ export function ConfirmDeleteExample() {
         </Button>
       </div>
 
-      <div className="rounded-lg border bg-muted/50 p-4">
-        <h3 className="font-semibold mb-2">Activity Log:</h3>
-        <div className="space-y-1 max-h-40 overflow-y-auto">
-          {logs.length === 0 ? (
-            <p className="text-sm text-muted-foreground">No activity yet...</p>
-          ) : (
-            logs.map((log, i) => (
-              <div key={i} className="text-sm font-mono">
-                <span className="text-muted-foreground">[{log.timestamp}]</span>{" "}
-                {log.message}
-              </div>
-            ))
-          )}
-        </div>
-      </div>
+      <LogPanel logs={logs} />
     </div>
   );
 }

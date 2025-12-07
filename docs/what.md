@@ -1,5 +1,8 @@
 # hiraku StackBlitz Examples PRD（簡易版）
 
+ライブラリの GitHub リポジトリ：
+https://github.com/HirotoShioi/hiraku
+
 ## 1. 目的
 
 * React/TypeScript エンジニアが StackBlitz 例を 1〜2 分眺めるだけで、

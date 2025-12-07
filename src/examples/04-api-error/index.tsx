@@ -60,7 +60,7 @@ export function ApiErrorExample() {
       <div className="rounded-lg border bg-amber-50 dark:bg-amber-950/20 p-4">
         <h3 className="font-semibold mb-2">💡 Key Point:</h3>
         <p className="text-sm">
-          The error dialog is opened from <code>src/lib/api-client.ts</code> - 
+          The error dialog is opened from <code>api-client.ts</code> - 
           a plain TypeScript file with no React context. hiraku's modal controllers
           work anywhere in your app!
         </p>

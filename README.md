@@ -2,6 +2,8 @@
 
 hiraku modal examples built with React + TypeScript + Vite. Four short demos show how hiraku keeps modal flows in a single async function, returns typed values, and can be opened from anywhere (even non-React layers).
 
+github: https://github.com/HirotoShioi/hiraku
+
 ## Examples
 - 01 Basic info modal — `createDialog` + `open` + `close` only
 - 02 Confirm flow — delete action completed inside one async function

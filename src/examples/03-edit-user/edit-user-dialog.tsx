@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { createDialog } from "@hirotoshioi/hiraku";
+import { createDialog } from "@hirotoshioi/hiraku-radix-ui";
 import {
   DialogContent,
   DialogHeader,

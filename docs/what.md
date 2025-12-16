@@ -83,7 +83,7 @@ https://github.com/HirotoShioi/hiraku
 ## 4. 技術・構成方針
 
 * Vite + React + TypeScript。
-* hiraku（`@hirotoshioi/hiraku`）。
+* hiraku（`@hirotoshioi/hiraku-radix-ui`）。
 * UI は Radix UI + shadcn/ui を使用（Dialog/Button など）。
 * React Router は使わず、`App` コンポーネント内でローカル state により Example を切り替える。
 * ディレクトリ構成（例）：

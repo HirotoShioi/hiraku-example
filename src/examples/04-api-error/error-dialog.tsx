@@ -1,4 +1,4 @@
-import { createAlertDialog } from "@hirotoshioi/hiraku";
+import { createAlertDialog } from "@hirotoshioi/hiraku-radix-ui";
 import {
   AlertDialogContent,
   AlertDialogHeader,
